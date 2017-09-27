@@ -69,8 +69,8 @@ if strcmpi(ds.StimType,'NRHO')
   S.BeatFreq    = NaN*ones(NSub,NChan);
   S.BeatModFreq = NaN*ones(NSub,NChan);
   S.CarFreq = NaN*ones(NSub,NChan);
-elseif isfield(ds.Stim, 'Fcar') && isfield(ds.Stim, 'ModFreq')
-S = getfields(ds.Stim, {'Fcar', 'ModFreq'});
+elseif isfield(ds.Stim, 'Fcar') && isfield(ds.Stim, 'Fmod')
+S = getfields(ds.Stim, {'Fcar', 'Fmod'});
 S.CarFreq     = ds.Stim.Fcar(1:NSub,1:NChan);
 S.ModFreq     = ds.Stim.Fmod(1:NSub,1:NChan);
 elseif isfield(ds.Stim, 'Fcar')
@@ -89,7 +89,7 @@ elseif isfield(ds.Stim, 'Fmod')
 S.ModFreq     = ds.Stim.Fmod(1:NSub,1:NChan);
 end 
 
-if (ds.ID.Experiment.Audio.DAchannelsUsed == 'Both') & (~strcmpi(ds.StimType,'NRHO'))
+if strcmp(ds.Stim.DAC,'Both')== 1 && (~strcmpi(ds.StimType,'NRHO'))
     S.BeatFreq    = abs(S.CarFreq(:,1)-S.CarFreq(:,2));
     S.BeatModFreq = abs(S.ModFreq(:,1)-S.ModFreq(:,2));
 else
