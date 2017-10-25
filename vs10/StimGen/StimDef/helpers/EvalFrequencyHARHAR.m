@@ -26,10 +26,10 @@ if isempty(P), % obtain info from GUI. Non-preferred method; see help text.
     EXP = getGUIdata(figh,'Experiment');
     Q = getGUIdata(figh,'Query');
     StartNHN = read(Q([Prefix 'StartNHN']));
-    [StepNHN, StepNHNUnit] = read(Q([Prefix 'StepNHN']));
-    EndNHN = read(Q([Prefix 'EndNHN']));
-    AdjustNHN = read(Q([Prefix 'AdjustFreq']));
-    P = CollectInStruct(StartNHN, StepNHN, StepNHNUnit, EndNHN, AdjustNHN);
+    [StepNHN , StepNHN Unit] = read(Q([Prefix 'StepNHN']));
+    EndNHN  = read(Q([Prefix 'EndNHN']));
+    AdjustNHN = read(Q([Prefix 'AdjustNHN ']));
+    P = CollectInStruct(StartNHN , StepNHN , StepNHNUnit, EndNHN , AdjustNHN );
 else,
     P = dePrefix(P, Prefix);
     EXP = P.Experiment;
@@ -70,7 +70,7 @@ elseif isequal('cripple', Mess)
 elseif isequal('toomany', Mess)
     Mess = {['Too many (>' num2str(EXP.maxNcond) ') frequency steps.'] 'Increase stepsize or decrease range'};
 end
-GUImessage(figh,Mess, 'error',{[Prefix 'StartFreq'] [Prefix 'StepFreq'] [Prefix 'EndFreq'] });
+GUImessage(figh,Mess, 'error',{[Prefix 'StartNHN'] [Prefix 'StepNHN'] [Prefix 'EndNHN'] });
 
 
 
