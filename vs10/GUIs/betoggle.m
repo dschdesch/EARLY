@@ -13,6 +13,7 @@ function h = betoggle(h,StrArray,Str0);
 if nargin<3, Str0=''; end % -> first string in StrArray (see toggle)
 % create toggle object T
 T = toggle(h,StrArray,Str0);
+
 % attach T to button
 set(h,'userdata',T, 'callback',{@click T 'Left'},'ButtonDownFcn', {@click T 'Right'});
 % render it
