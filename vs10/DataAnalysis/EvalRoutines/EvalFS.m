@@ -106,10 +106,10 @@ end
 DisSub = [];
 fprintf('Calculating Correlogram and Cyclehistogram for : ');
 
+
 [spt1,count1] = spiketimes(ds1);
-
+%Remove all cells that contain no spikes
 remove = find(~count1);
-
 [spt2,count2] = spiketimes(ds2);
 remove = [remove find(~count2)]; 
 remove = unique(remove);

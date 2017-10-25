@@ -47,6 +47,9 @@ end
 Mess = ''; X = [];
 % evaluate # steps & potential errors with that
 Nstep = abs(X1-X0)./Xstep;
+if isnan(Nstep)
+    Nstep = 0;
+end
 if isequal('None', Adjust) && any(Nstep~=round(Nstep)),
     Mess = 'nofit';
     return;

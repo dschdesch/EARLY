@@ -63,7 +63,8 @@ end
 % minus the first column. If the orginal frequency is NaN then the beatfrequency is
 % also NaN. For monaural datasets the beatfrequencies are all zero or NaN.
 
-S.NChan       = NChan; 
+
+
 if strcmpi(ds.StimType,'NRHO') 
   S.ModFreq     = NaN*ones(NSub, NChan);
   S.BeatFreq    = NaN*ones(NSub,NChan);
@@ -96,7 +97,7 @@ else
     S.BeatFreq    = NaN*ones(1,NSub);
     S.BeatModFreq = NaN*ones(1,NSub);
 end
-
+S.NChan       = NChan; 
 if (nargin == 1)
     ArgOut = S; 
 else 

@@ -1,4 +1,4 @@
-function T = EvalSync(ds, varargin)
+function T = EvalSYNC(ds, varargin)
 % evalSync
 %
 % Parameters: (see source of CalcVSPH for detailed explanation)

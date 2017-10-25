@@ -8,6 +8,7 @@ function click(h,dum,dumT,MouseButton); %#ok<INUSL>
 %    It enables/disables the state of the toggle button.
 
 % get current state of toggle, i.e., the object in userdata clicked button
+h = double(h);
 T = get(h,'userdata');
 switch MouseButton,
     case 'Left', % regular click  : rotate to next string
@@ -21,10 +22,3 @@ switch MouseButton,
 end
 % T has changed; re-render it
 show(T);
-
-
-
-
-
-
-
